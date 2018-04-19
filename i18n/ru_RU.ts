@@ -32,13 +32,12 @@ Version 1.0.1&lt;br&gt;
 New BSD License (c) 2018&lt;br&gt;
 
 Icons by &lt;a href=http://www.graphicrating.com&gt;Andy Gongea&lt;/a&gt;&lt;rb&gt;
-and &lt;a=href=https://www.iconfinder.com/dinosoftlabs&gt;DinosoftLabs&lt;/a&gt;
 </source>
         <translation type="obsolete">Автор &lt;a href=https://github.com/clericJ&gt;Алмаз Каримов&lt;/a&gt;
 Версия 1.0.1
 Лицензия New BSD Lincense (c)
 Иконки &lt;a href=http://www.graphicrating.com&gt;Andy Gongea&lt;/a&gt;&lt;rb&gt;
-и &lt;a=href=https://www.iconfinder.com/dinosoftlabs&gt;DinosoftLabs&lt;/a&gt;</translation>
+</translation>
     </message>
     <message>
         <location filename="../snmp_scanner_mainwindow.py" line="24"/>
@@ -51,11 +50,29 @@ New BSD License (c) 2018&lt;br&gt;
 Icons by &lt;a href=http://www.graphicrating.com&gt;Andy Gongea&lt;/a&gt;&lt;rb&gt;
 and &lt;a href=https://www.iconfinder.com/dinosoftlabs&gt;DinosoftLabs&lt;/a&gt;
 </source>
-        <translation>Автор &lt;a href=https://github.com/clericJ&gt;Алмаз Каримов&lt;/a&gt;&lt;br&gt;
+        <translation type="obsolete">Автор &lt;a href=https://github.com/clericJ&gt;Алмаз Каримов&lt;/a&gt;&lt;br&gt;
 Версия 1.0.1&lt;br&gt;
 Лицензия New BSD Lincense (c)&lt;br&gt;
 Иконки &lt;a href=http://www.graphicrating.com&gt;Andy Gongea&lt;/a&gt;&lt;rb&gt;
 и &lt;a href=https://www.iconfinder.com/dinosoftlabs&gt;DinosoftLabs&lt;/a&gt;</translation>
+    </message>
+    <message>
+        <location filename="../snmp_scanner_mainwindow.py" line="25"/>
+        <source>
+Author &lt;a href=https://github.com/clericJ&gt;Almaz Karimov&lt;/a&gt;
+&lt;br&gt;
+Version 1.0.1&lt;br&gt;
+New BSD License (c) 2018&lt;br&gt;
+
+Icons by &lt;a href=http://www.graphicrating.com&gt;Andy Gongea&lt;/a&gt;
+</source>
+        <translation>
+Автор &lt;a href=https://github.com/clericJ&gt;Алмаз Каримов&lt;/a&gt;
+&lt;br&gt;
+версия 1.0.1&lt;br&gt;
+Лицензия New BSD License (c) 2018&lt;br&gt;
+
+Иконки &lt;a href=http://www.graphicrating.com&gt;Andy Gongea&lt;/a&gt;</translation>
     </message>
 </context>
 <context>
@@ -84,107 +101,107 @@ and &lt;a href=https://www.iconfinder.com/dinosoftlabs&gt;DinosoftLabs&lt;/a&gt;
 <context>
     <name>SNMPScannerWindow</name>
     <message>
-        <location filename="../ui_snmp_scanner_mainwindow.py" line="145"/>
+        <location filename="../ui_snmp_scanner_mainwindow.py" line="153"/>
         <source>SNMP Scanner</source>
         <translation>SNMP Scanner</translation>
     </message>
     <message>
-        <location filename="../ui_snmp_scanner_mainwindow.py" line="146"/>
+        <location filename="../ui_snmp_scanner_mainwindow.py" line="154"/>
         <source>Target</source>
         <translation>Цель</translation>
     </message>
     <message>
-        <location filename="../ui_snmp_scanner_mainwindow.py" line="154"/>
+        <location filename="../ui_snmp_scanner_mainwindow.py" line="168"/>
         <source>Scan</source>
         <translation>Сканирование</translation>
     </message>
     <message>
-        <location filename="../ui_snmp_scanner_mainwindow.py" line="148"/>
+        <location filename="../ui_snmp_scanner_mainwindow.py" line="157"/>
         <source>Address/Network:</source>
         <translation>Адрес/Сеть:</translation>
     </message>
     <message>
-        <location filename="../ui_snmp_scanner_mainwindow.py" line="149"/>
+        <location filename="../ui_snmp_scanner_mainwindow.py" line="159"/>
         <source>Community:</source>
         <translation>Пароль (Community):</translation>
     </message>
     <message>
-        <location filename="../ui_snmp_scanner_mainwindow.py" line="162"/>
+        <location filename="../ui_snmp_scanner_mainwindow.py" line="180"/>
         <source>Stop</source>
         <translation>Остановить</translation>
     </message>
     <message>
-        <location filename="../ui_snmp_scanner_mainwindow.py" line="151"/>
+        <location filename="../ui_snmp_scanner_mainwindow.py" line="163"/>
         <source>Result</source>
         <translation>Результаты</translation>
     </message>
     <message>
-        <location filename="../ui_snmp_scanner_mainwindow.py" line="152"/>
+        <location filename="../ui_snmp_scanner_mainwindow.py" line="165"/>
         <source>Export...</source>
         <translation>Экспорт...</translation>
     </message>
     <message>
-        <location filename="../ui_snmp_scanner_mainwindow.py" line="153"/>
+        <location filename="../ui_snmp_scanner_mainwindow.py" line="167"/>
         <source>File</source>
         <translation>Файл</translation>
     </message>
     <message>
-        <location filename="../ui_snmp_scanner_mainwindow.py" line="155"/>
+        <location filename="../ui_snmp_scanner_mainwindow.py" line="169"/>
         <source>Help</source>
         <translation>Помощь</translation>
     </message>
     <message>
-        <location filename="../ui_snmp_scanner_mainwindow.py" line="156"/>
+        <location filename="../ui_snmp_scanner_mainwindow.py" line="170"/>
         <source>Export</source>
         <translation>Экспорт</translation>
     </message>
     <message>
-        <location filename="../ui_snmp_scanner_mainwindow.py" line="157"/>
+        <location filename="../ui_snmp_scanner_mainwindow.py" line="172"/>
         <source>Export results to file</source>
         <translation>Экспортировать результаты в файл</translation>
     </message>
     <message>
-        <location filename="../ui_snmp_scanner_mainwindow.py" line="158"/>
+        <location filename="../ui_snmp_scanner_mainwindow.py" line="173"/>
         <source>Exit</source>
         <translation>Выход</translation>
     </message>
     <message>
-        <location filename="../ui_snmp_scanner_mainwindow.py" line="159"/>
+        <location filename="../ui_snmp_scanner_mainwindow.py" line="175"/>
         <source>Close program</source>
         <translation>Закрыть программу</translation>
     </message>
     <message>
-        <location filename="../ui_snmp_scanner_mainwindow.py" line="160"/>
+        <location filename="../ui_snmp_scanner_mainwindow.py" line="176"/>
         <source>Start</source>
         <translation>Начать</translation>
     </message>
     <message>
-        <location filename="../ui_snmp_scanner_mainwindow.py" line="161"/>
+        <location filename="../ui_snmp_scanner_mainwindow.py" line="179"/>
         <source>Start scan network</source>
         <translation>Запустить сканирование сети</translation>
     </message>
     <message>
-        <location filename="../ui_snmp_scanner_mainwindow.py" line="163"/>
+        <location filename="../ui_snmp_scanner_mainwindow.py" line="177"/>
         <source>Stop scan network</source>
-        <translation>Остановить сканирование</translation>
+        <translation type="obsolete">Остановить сканирование</translation>
     </message>
     <message>
-        <location filename="../ui_snmp_scanner_mainwindow.py" line="164"/>
+        <location filename="../ui_snmp_scanner_mainwindow.py" line="184"/>
         <source>About</source>
         <translation>О Программе</translation>
     </message>
     <message>
-        <location filename="../ui_snmp_scanner_mainwindow.py" line="165"/>
+        <location filename="../ui_snmp_scanner_mainwindow.py" line="186"/>
         <source>About program</source>
         <translation>Информация о программе</translation>
     </message>
     <message>
-        <location filename="../snmp_scanner_mainwindow.py" line="109"/>
+        <location filename="../snmp_scanner_mainwindow.py" line="113"/>
         <source>Error</source>
         <translation>Ошибка</translation>
     </message>
     <message>
-        <location filename="../snmp_scanner_mainwindow.py" line="104"/>
+        <location filename="../snmp_scanner_mainwindow.py" line="108"/>
         <source>Incorrect network
 for example:
 
@@ -197,29 +214,59 @@ for example:
 10.7.207.0/255.255.255.0</translation>
     </message>
     <message>
-        <location filename="../snmp_scanner_mainwindow.py" line="109"/>
+        <location filename="../snmp_scanner_mainwindow.py" line="113"/>
         <source>Community is empty</source>
         <translation>Пустое поле пароля</translation>
     </message>
     <message>
-        <location filename="../snmp_scanner_mainwindow.py" line="169"/>
+        <location filename="../snmp_scanner_mainwindow.py" line="173"/>
         <source>{}::{} scanning...</source>
         <translation>{}::{} сканирование...</translation>
     </message>
     <message>
-        <location filename="../snmp_scanner_mainwindow.py" line="189"/>
+        <location filename="../snmp_scanner_mainwindow.py" line="193"/>
         <source>scanning canceled, please wait...</source>
         <translation>сканирование отменено, пожалуйста подождите...</translation>
     </message>
     <message>
-        <location filename="../snmp_scanner_mainwindow.py" line="200"/>
+        <location filename="../snmp_scanner_mainwindow.py" line="204"/>
         <source>scanning completed</source>
         <translation>сканирование завершено</translation>
     </message>
     <message>
-        <location filename="../snmp_scanner_mainwindow.py" line="215"/>
+        <location filename="../snmp_scanner_mainwindow.py" line="219"/>
         <source>Save results</source>
         <translation>Сохранить результаты</translation>
+    </message>
+    <message>
+        <location filename="../ui_snmp_scanner_mainwindow.py" line="158"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enter network, example: 192.168.1.0/24&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Введите адрес сети, например: 192.168.1.0/24&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../ui_snmp_scanner_mainwindow.py" line="160"/>
+        <source>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enter SNMP Community&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</source>
+        <translation>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Введите SNMP Community&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</translation>
+    </message>
+    <message>
+        <location filename="../ui_snmp_scanner_mainwindow.py" line="155"/>
+        <source>Start scanning</source>
+        <translation>Начать сканирование</translation>
+    </message>
+    <message>
+        <location filename="../ui_snmp_scanner_mainwindow.py" line="183"/>
+        <source>Cancel scanning</source>
+        <translation>Отменить сканирование</translation>
+    </message>
+    <message>
+        <location filename="../ui_snmp_scanner_mainwindow.py" line="164"/>
+        <source>Export results to CSV format file</source>
+        <translation>Экспорт результатов в файл формата CSV</translation>
+    </message>
+    <message>
+        <location filename="../ui_snmp_scanner_mainwindow.py" line="166"/>
+        <source>Support developer</source>
+        <translation>Поддержать разработчика</translation>
     </message>
 </context>
 <context>

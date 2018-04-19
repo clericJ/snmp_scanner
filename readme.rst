@@ -2,12 +2,11 @@
 SNMP Scanner - simple network discovery tool
 ============================================
 
-[screenshot]
-.. figure:: https://github.com/clericJ/cnmp_scanner/raw/master/screenshot.png
+.. figure:: https://github.com/clericJ/snmp_scanner/raw/master/screenshot.png
 
 Windows Installation:
 -----------------
- 1. Download lastest version https://github.com/clericJ/cnmp_scanner/raw/master/bin/SNMPScannerSetup.exe
+ 1. Download lastest version https://github.com/clericJ/snmp_scanner/raw/master/bin/SNMPScannerSetup.exe
  2. Install program
 System Requrements: Windows Vista, 7, 10 (not working on Windows XP!)
 

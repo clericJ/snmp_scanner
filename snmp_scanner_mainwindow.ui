@@ -23,6 +23,9 @@
       <layout class="QGridLayout" name="gridLayout_3">
        <item row="0" column="0">
         <widget class="QPushButton" name="scanButton">
+         <property name="statusTip">
+          <string>Start scanning</string>
+         </property>
          <property name="text">
           <string>Scan</string>
          </property>
@@ -63,6 +66,9 @@
              <verstretch>0</verstretch>
             </sizepolicy>
            </property>
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enter network, example: 192.168.1.0/24&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
            <property name="editable">
             <bool>true</bool>
            </property>
@@ -83,6 +89,9 @@
          </item>
          <item row="1" column="1">
           <widget class="QComboBox" name="communityCBox">
+           <property name="toolTip">
+            <string>&lt;html&gt;&lt;head/&gt;&lt;body&gt;&lt;p&gt;Enter SNMP Community&lt;/p&gt;&lt;/body&gt;&lt;/html&gt;</string>
+           </property>
            <property name="editable">
             <bool>true</bool>
            </property>
@@ -94,6 +103,9 @@
         <widget class="QPushButton" name="stopButton">
          <property name="enabled">
           <bool>true</bool>
+         </property>
+         <property name="statusTip">
+          <string>Cancel scanning</string>
          </property>
          <property name="text">
           <string>Stop</string>
@@ -131,7 +143,23 @@
        <string>Result</string>
       </property>
       <layout class="QGridLayout" name="gridLayout_2">
-       <item row="0" column="0" colspan="2">
+       <item row="1" column="2">
+        <widget class="QPushButton" name="exportButton">
+         <property name="statusTip">
+          <string>Export results to CSV format file</string>
+         </property>
+         <property name="text">
+          <string>Export...</string>
+         </property>
+         <property name="iconSize">
+          <size>
+           <width>24</width>
+           <height>24</height>
+          </size>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="0" colspan="3">
         <widget class="QSplitter" name="splitter">
          <property name="orientation">
           <enum>Qt::Vertical</enum>
@@ -139,6 +167,9 @@
          <widget class="QTableView" name="scanResultsTableView">
           <property name="mouseTracking">
            <bool>true</bool>
+          </property>
+          <property name="acceptDrops">
+           <bool>false</bool>
           </property>
           <property name="midLineWidth">
            <number>0</number>
@@ -158,7 +189,13 @@
           <property name="sortingEnabled">
            <bool>false</bool>
           </property>
+          <attribute name="horizontalHeaderCascadingSectionResizes">
+           <bool>false</bool>
+          </attribute>
           <attribute name="horizontalHeaderHighlightSections">
+           <bool>false</bool>
+          </attribute>
+          <attribute name="verticalHeaderStretchLastSection">
            <bool>false</bool>
           </attribute>
          </widget>
@@ -182,30 +219,30 @@
         </widget>
        </item>
        <item row="1" column="0">
+        <widget class="QPushButton" name="donateButton">
+         <property name="statusTip">
+          <string>Support developer</string>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+         <property name="flat">
+          <bool>true</bool>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
         <spacer name="horizontalSpacer_2">
          <property name="orientation">
           <enum>Qt::Horizontal</enum>
          </property>
          <property name="sizeHint" stdset="0">
           <size>
-           <width>779</width>
+           <width>40</width>
            <height>20</height>
           </size>
          </property>
         </spacer>
-       </item>
-       <item row="1" column="1">
-        <widget class="QPushButton" name="exportButton">
-         <property name="text">
-          <string>Export...</string>
-         </property>
-         <property name="iconSize">
-          <size>
-           <width>24</width>
-           <height>24</height>
-          </size>
-         </property>
-        </widget>
        </item>
       </layout>
      </widget>
@@ -218,7 +255,7 @@
      <x>0</x>
      <y>0</y>
      <width>928</width>
-     <height>26</height>
+     <height>21</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile">
@@ -257,12 +294,18 @@
    <property name="toolTip">
     <string>Export results to file</string>
    </property>
+   <property name="statusTip">
+    <string>Export results to file</string>
+   </property>
   </action>
   <action name="actionExit">
    <property name="text">
     <string>Exit</string>
    </property>
    <property name="toolTip">
+    <string>Close program</string>
+   </property>
+   <property name="statusTip">
     <string>Close program</string>
    </property>
   </action>
@@ -273,13 +316,25 @@
    <property name="toolTip">
     <string>Start scan network</string>
    </property>
+   <property name="statusTip">
+    <string>Start scan network</string>
+   </property>
+   <property name="whatsThis">
+    <string>Start scan network</string>
+   </property>
   </action>
   <action name="actionStop">
    <property name="text">
     <string>Stop</string>
    </property>
    <property name="toolTip">
-    <string>Stop scan network</string>
+    <string>Cancel scanning</string>
+   </property>
+   <property name="statusTip">
+    <string>Cancel scanning</string>
+   </property>
+   <property name="whatsThis">
+    <string>Cancel scanning</string>
    </property>
   </action>
   <action name="actionAbout">
@@ -287,6 +342,9 @@
     <string>About</string>
    </property>
    <property name="toolTip">
+    <string>About program</string>
+   </property>
+   <property name="statusTip">
     <string>About program</string>
    </property>
   </action>

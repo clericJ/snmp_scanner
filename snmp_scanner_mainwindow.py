@@ -2,6 +2,7 @@
 # -*- coding: utf-8 -*-
 
 import sys, os
+import webbrowser
 from pathlib import Path
 from PyQt5 import QtGui, QtCore
 from PyQt5.QtWidgets import (QMessageBox, QMainWindow, QApplication,
@@ -27,8 +28,7 @@ Author <a href=https://github.com/clericJ>Almaz Karimov</a>
 Version 1.0.1<br>
 New BSD License (c) 2018<br>
 
-Icons by <a href=http://www.graphicrating.com>Andy Gongea</a><rb>
-and <a href=https://www.iconfinder.com/dinosoftlabs>DinosoftLabs</a>
+Icons by <a href=http://www.graphicrating.com>Andy Gongea</a>
 ''')
 
 class SNMPScannerWindow(QMainWindow):
@@ -62,6 +62,9 @@ class SNMPScannerWindow(QMainWindow):
         self.ui.actionAbout.setIcon(QtGui.QIcon(os.path.join(ICONS_PATH, 'about.png')))
         self.ui.actionExit.setIcon(QtGui.QIcon(os.path.join(ICONS_PATH, 'close.png')))
 
+        self.ui.donateButton.setIconSize(QtCore.QSize(74,21))
+        self.ui.donateButton.setIcon(QtGui.QIcon(os.path.join(ICONS_PATH, 'donate.gif')))
+
         self.ui.scanResultsTableView.setModel(ScanResultsTableModel())
         self.ui.scanResultsTableView.resizeColumnsToContents()
 
@@ -85,6 +88,7 @@ class SNMPScannerWindow(QMainWindow):
         self.ui.scanButton.clicked.connect(self.start_scan)
         self.ui.stopButton.clicked.connect(self.stop_scan)
         self.ui.exportButton.clicked.connect(self.export_results)
+        self.ui.donateButton.clicked.connect(self.open_donation_url)
         self.ui.stopButton.setEnabled(False)
         self.ui.exportButton.setEnabled(False)
 
@@ -224,6 +228,13 @@ class SNMPScannerWindow(QMainWindow):
         ''' Отображение окна со сведениями о программе
         '''
         QMessageBox.about(self, 'SNMP Scanner', ABOUT_MESSAGE)
+
+
+    @pyqtSlot()
+    def open_donation_url(self):
+        ''' Открытие сайта для принятий пожертвований
+        '''
+        webbrowser.open("https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=JG6BJDGECF6QS")
 
 
     def closeEvent(self, event):

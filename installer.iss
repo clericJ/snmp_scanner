@@ -22,8 +22,9 @@ AppUpdatesURL={#MyAppURL}
 DefaultDirName={pf}\{#MyAppName}
 DefaultGroupName={#MyAppName}
 LicenseFile=license.txt
-InfoBeforeFile=readme.txt
+InfoBeforeFile=description.txt
 OutputBaseFilename=SNMPScannerSetup
+OutputDir=bin
 Compression=lzma
 SolidCompression=yes
 
