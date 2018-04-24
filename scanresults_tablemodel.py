@@ -9,6 +9,7 @@ from PyQt5.QtWidgets import QTableWidgetItem
 from PyQt5.QtCore import Qt, QAbstractTableModel, QModelIndex, QVariant, QCoreApplication
 from ipaddress import IPv4Address, IPv4Network, ip_network, get_mixed_type_key
 from snmpclient import DeviceInfo
+from logger import logger
 
 
 class ScanResultsTableModel(QAbstractTableModel):
@@ -86,6 +87,55 @@ class ScanResultsTableModel(QAbstractTableModel):
         return result
 
 
+    def insertRows(self, position: int, rows: int, parent: QModelIndex) -> bool:
+        ''' Вставка строк
+            переопреденённый метод родительского класса
+        '''
+        if len(self._to_insert) == 0:
+            return False
+
+        self.beginInsertRows(QModelIndex(), position, position+rows-1)
+        for row in self._to_insert:
+            self._data.append(row)
+
+        self._to_insert.clear()
+        self.endInsertRows()
+        self.dataChanged.emit(parent, parent)
+
+        return True
+
+
+    def removeRows(self, row: int, count: int, parent: QModelIndex) -> bool:
+        ''' Удаление количества строк равное count, начиная с row
+            переопреденённый метод родительского класса
+        '''
+        rowcount = self.rowCount(QModelIndex)
+        if ((rowcount < row) or (rowcount > (row + count)) or (rowcount == 0)):
+            return False
+
+        self.beginRemoveRows(parent, row, row+count-1)
+        for index in range(row+count-1, row, -1):
+            del self._data[index]
+
+        self.endRemoveRows()
+        return True
+
+
+    def sort(self, column: int, order: int):
+        ''' Сортировка таблицы по колонке
+            переопреденённый метод родительского класса
+        '''
+        self.layoutAboutToBeChanged.emit()
+
+        sortkey = lambda x: x[column]
+        # сортировка по ip-адресу
+        if column == 0:
+            sortkey = lambda x: get_mixed_type_key(IPv4Address(x.host))
+
+        self._data.sort(key=sortkey, reverse=True if order == Qt.DescendingOrder else False)
+        self.layoutChanged.emit()
+
+
     def add_row(self, devinfo: DeviceInfo):
         ''' Добавление строки, представляющей собой данные объекта DeviceInfo
         '''
@@ -93,25 +143,12 @@ class ScanResultsTableModel(QAbstractTableModel):
         self.insertRows(self.rowCount(QModelIndex()), 1, QModelIndex())
 
 
-    def insertRows(self, position: int, rows: int, parent: QModelIndex):
-        ''' Вставка строк
-            переопреденённый метод родительского класса
-        '''
-        self.beginInsertRows(QModelIndex(), position, position+rows-1)
-        for row in self._to_insert:
-            self._data.append(row)
-        self._to_insert = []
-        self._data = sorted(self._data, key=lambda x: get_mixed_type_key(IPv4Address(x.host)))
-        self.endInsertRows()
-        self.dataChanged.emit(parent, parent)
-
-
     def remove_all_rows(self):
         ''' Очистка всех строк в таблице
             однако колонки не будут удалены
         '''
-        self.beginRemoveRows(QModelIndex(), 0, self.rowCount(QModelIndex()))
-        self._data = []
+        self.beginRemoveRows(QModelIndex(), 0, self.rowCount(QModelIndex())-1)
+        self._data.clear()
         self.endRemoveRows()
 
 
@@ -124,8 +161,7 @@ class ScanResultsTableModel(QAbstractTableModel):
                     quotechar='|', quoting=csv.QUOTE_MINIMAL)
 
                 spamwriter.writerow(self.HEADERS)
-                for devinfo in sorted(self._data, key=
-                    lambda x: get_mixed_type_key(IPv4Address(x.host))):
+                for devinfo in self._data:
                     row = []
                     for record in devinfo:
                         if isinstance(record, str):

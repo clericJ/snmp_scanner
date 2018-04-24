@@ -13,7 +13,6 @@ from snmp_constants import *
 class InterfaceInfo(NamedTuple):
     ''' Кортеж содерждащий общие сведенья об интерфейсе устройства
     '''
-
     description: str
     interface_type: str
     admin_status: str
@@ -27,7 +26,6 @@ class InterfaceInfo(NamedTuple):
 class DeviceInfo(NamedTuple):
     ''' Кортеж содержащий общие сведенья об устройстве
     '''
-
     host: str
     name: str
     description: str
@@ -148,7 +146,6 @@ def main():
     pprint(data)
     return
 
-    client = SNMPClient(host='10.7.207.240', community='tatZxl761xH147')
     data  = client.getbulk(0,10, OID_INTERFACES_TABLE)
     interface_count = int(client.get(OID_INTERFACES_COUNT)[0])
 

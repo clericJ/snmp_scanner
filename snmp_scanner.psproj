@@ -41,8 +41,12 @@ FileName=$[Project-Path]snmpscannerthread.py
 ClassName=TProjectFileNode
 FileName=$[Project-Path]util.py
 
+[Project\ChildNodes\Node0\ChildNodes\Node8]
+ClassName=TProjectFileNode
+FileName=$[Project-Path]version.py
+
 [Project\ChildNodes\Node0\ChildNodes]
-Count=8
+Count=9
 
 [Project\ChildNodes\Node1]
 ClassName=TProjectRunConfiguationsNode

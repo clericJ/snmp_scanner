@@ -6,7 +6,7 @@ import webbrowser
 from pathlib import Path
 from PyQt5 import QtGui, QtCore
 from PyQt5.QtWidgets import (QMessageBox, QMainWindow, QApplication,
-    QTableWidgetItem, QComboBox, QFileDialog)
+    QComboBox, QFileDialog)
 
 from PyQt5.QtCore import QCoreApplication, pyqtSlot, pyqtSignal, QModelIndex
 from ipaddress import IPv4Network, IPv4Address
@@ -27,7 +27,6 @@ Author <a href=https://github.com/clericJ>Almaz Karimov</a>
 <br>
 Version 1.0.1<br>
 New BSD License (c) 2018<br>
-
 Icons by <a href=http://www.graphicrating.com>Andy Gongea</a>
 ''')
 
@@ -62,9 +61,6 @@ class SNMPScannerWindow(QMainWindow):
         self.ui.actionAbout.setIcon(QtGui.QIcon(os.path.join(ICONS_PATH, 'about.png')))
         self.ui.actionExit.setIcon(QtGui.QIcon(os.path.join(ICONS_PATH, 'close.png')))
 
-        self.ui.donateButton.setIconSize(QtCore.QSize(74,21))
-        self.ui.donateButton.setIcon(QtGui.QIcon(os.path.join(ICONS_PATH, 'donate.gif')))
-
         self.ui.scanResultsTableView.setModel(ScanResultsTableModel())
         self.ui.scanResultsTableView.resizeColumnsToContents()
 
@@ -88,11 +84,11 @@ class SNMPScannerWindow(QMainWindow):
         self.ui.scanButton.clicked.connect(self.start_scan)
         self.ui.stopButton.clicked.connect(self.stop_scan)
         self.ui.exportButton.clicked.connect(self.export_results)
-        self.ui.donateButton.clicked.connect(self.open_donation_url)
         self.ui.stopButton.setEnabled(False)
         self.ui.exportButton.setEnabled(False)
 
         self.ui.actionAbout.triggered.connect(self.show_about)
+        self.ui.actionDonate.triggered.connect(self.open_donation_url)
         self._thread_pool.all_threads_finished.connect(self._scan_completeted)
 
 
@@ -106,7 +102,7 @@ class SNMPScannerWindow(QMainWindow):
             network = IPv4Network(self.ui.hostsCBox.currentText())
         except ValueError:
             QMessageBox.critical(self, self.tr('Error'),
-             self.tr('Incorrect network\nfor example:\n\n192.0.2.0/27\n10.7.207.0/255.255.255.0'))
+             self.tr('Incorrect network\nfor example:\n\n192.168.1.0/27\n10.7.207.0/255.255.255.0'))
             return False
 
         if not self.ui.communityCBox.currentText():
@@ -164,6 +160,7 @@ class SNMPScannerWindow(QMainWindow):
             return
         self.append_current_params_to_completions()
 
+        logger.debug('scanning started')
         network = IPv4Network(self.ui.hostsCBox.currentText())
         community = self.ui.communityCBox.currentText()
         # очистка данных
@@ -188,6 +185,7 @@ class SNMPScannerWindow(QMainWindow):
     def stop_scan(self):
         ''' Слот реагирующий на кнопку остановки сканирования
         '''
+        logger.debug('scanning canceled')
         self.ui.stopButton.setEnabled(False)
         self._thread_pool.stop()
         self.add_record_to_message_list(self.tr(
@@ -198,6 +196,7 @@ class SNMPScannerWindow(QMainWindow):
     def _scan_completeted(self):
         ''' Слот вызываемый при завершении всех рабочих потоков
         '''
+        logger.debug('scan completed, clean pool')
         self._thread_pool = ThreadPool()
         self._thread_pool.all_threads_finished.connect(self._scan_completeted)
 

@@ -187,7 +187,7 @@
            <enum>QAbstractItemView::SelectRows</enum>
           </property>
           <property name="sortingEnabled">
-           <bool>false</bool>
+           <bool>true</bool>
           </property>
           <attribute name="horizontalHeaderCascadingSectionResizes">
            <bool>false</bool>
@@ -216,19 +216,6 @@
            <bool>true</bool>
           </property>
          </widget>
-        </widget>
-       </item>
-       <item row="1" column="0">
-        <widget class="QPushButton" name="donateButton">
-         <property name="statusTip">
-          <string>Support developer</string>
-         </property>
-         <property name="text">
-          <string/>
-         </property>
-         <property name="flat">
-          <bool>true</bool>
-         </property>
         </widget>
        </item>
        <item row="1" column="1">
@@ -277,6 +264,8 @@
     <property name="title">
      <string>Help</string>
     </property>
+    <addaction name="actionDonate"/>
+    <addaction name="separator"/>
     <addaction name="actionAbout"/>
    </widget>
    <addaction name="menuFile"/>
@@ -346,6 +335,14 @@
    </property>
    <property name="statusTip">
     <string>About program</string>
+   </property>
+  </action>
+  <action name="actionDonate">
+   <property name="text">
+    <string>Donate</string>
+   </property>
+   <property name="statusTip">
+    <string>Support developer</string>
    </property>
   </action>
  </widget>

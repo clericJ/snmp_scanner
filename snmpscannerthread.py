@@ -36,17 +36,19 @@ class ThreadPool(QObject):
             только после того как завершится предыдущий
         '''
         self._mutex.lock()
+        logger.debug('threadpool::start mutex lock'.format(id(self)))
         try:
             if self._active_thread_count < self._max_active_thread_count:
                 self._active_thread_count += 1
                 thread.finished.connect(self._thread_finished)
-                logger.debug('thread started')
+                logger.debug('thread started'.format(id(self)))
                 thread.start()
             else:
-                logger.debug('thread queued')
+                logger.debug('thread queued'.format(id(self)))
                 self._thread_queue.append(thread)
         finally:
             self._mutex.unlock()
+            logger.debug('threadpool::start mutex unlock'.format(id(self)))
 
 
     def stop(self):
@@ -54,18 +56,21 @@ class ThreadPool(QObject):
             уже запущенные потоки продолжат работать
         '''
         self._mutex.lock()
+        logger.debug('threadpool::stop mutex lock'.format(id(self)))
         try:
             self._thread_queue = []
         finally:
             self._mutex.unlock()
+            logger.debug('threadpool::stop mutex unlock'.format(id(self)))
 
 
     @pyqtSlot()
     def _thread_finished(self):
         ''' Слот обрабатывающий событие завершения выполнения потока в пуле
         '''
-        logger.debug('thread finished')
+        logger.debug('threadpool::finished'.format(id(self)))
         self._mutex.lock()
+        logger.debug('threadpool::_thread_finished mutex lock'.format(id(self)))
         try:
             self._active_thread_count -= 1
             if len(self._thread_queue) > 0:
@@ -76,6 +81,7 @@ class ThreadPool(QObject):
                 self.all_threads_finished.emit()
         finally:
             self._mutex.unlock()
+            logger.debug('thread::_thread_finished mutex unlock'.format(id(self)))
 
 
     @property

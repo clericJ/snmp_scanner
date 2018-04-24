@@ -1,5 +1,5 @@
-
 # -*- mode: python -*-
+
 from PyInstaller.utils.hooks import collect_data_files, collect_submodules
 import sys, os
 
@@ -27,14 +27,14 @@ exe = EXE(pyz,
           strip=False,
           icon='icons\\appicon.ico',
           upx=False,
-          console=False)
+          console=False,
+          version='version.py')
 coll = COLLECT(exe,
                a.binaries,
                a.zipfiles,
                a.datas,
-          x,
+               x,
                strip=False,
                upx=False,
                name='SNMP Scanner')
 
-# vim ft=python
