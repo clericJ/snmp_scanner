@@ -57,7 +57,7 @@ class ScanResultsTableModel(QAbstractTableModel):
 
         row = index.row()
         column = index.column()
-        #print(row, column)
+
         devinfo = self._data[row]
 
         if(row > self.rowCount(QModelIndex()) or row < 0):
@@ -128,7 +128,7 @@ class ScanResultsTableModel(QAbstractTableModel):
         self.layoutAboutToBeChanged.emit()
 
         sortkey = lambda x: x[column]
-        # сортировка по ip-адресу
+        # HACK: сортировка по ip-адресу
         if column == 0:
             sortkey = lambda x: get_mixed_type_key(IPv4Address(x.host))
 

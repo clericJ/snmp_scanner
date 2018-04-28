@@ -36,19 +36,19 @@ class ThreadPool(QObject):
             только после того как завершится предыдущий
         '''
         self._mutex.lock()
-        logger.debug('threadpool::start mutex lock'.format(id(self)))
+        logger.debug('threadpool::start mutex lock')
         try:
             if self._active_thread_count < self._max_active_thread_count:
                 self._active_thread_count += 1
                 thread.finished.connect(self._thread_finished)
-                logger.debug('thread started'.format(id(self)))
+                logger.debug('thread started')
                 thread.start()
             else:
-                logger.debug('thread queued'.format(id(self)))
+                logger.debug('thread queued')
                 self._thread_queue.append(thread)
         finally:
             self._mutex.unlock()
-            logger.debug('threadpool::start mutex unlock'.format(id(self)))
+            logger.debug('threadpool::start mutex unlock')
 
 
     def stop(self):
@@ -56,21 +56,21 @@ class ThreadPool(QObject):
             уже запущенные потоки продолжат работать
         '''
         self._mutex.lock()
-        logger.debug('threadpool::stop mutex lock'.format(id(self)))
+        logger.debug('threadpool::stop mutex lock')
         try:
             self._thread_queue = []
         finally:
             self._mutex.unlock()
-            logger.debug('threadpool::stop mutex unlock'.format(id(self)))
+            logger.debug('threadpool::stop mutex unlock')
 
 
     @pyqtSlot()
     def _thread_finished(self):
         ''' Слот обрабатывающий событие завершения выполнения потока в пуле
         '''
-        logger.debug('threadpool::finished'.format(id(self)))
+        logger.debug('threadpool::finished')
         self._mutex.lock()
-        logger.debug('threadpool::_thread_finished mutex lock'.format(id(self)))
+        logger.debug('threadpool::_thread_finished mutex lock')
         try:
             self._active_thread_count -= 1
             if len(self._thread_queue) > 0:
@@ -81,7 +81,7 @@ class ThreadPool(QObject):
                 self.all_threads_finished.emit()
         finally:
             self._mutex.unlock()
-            logger.debug('thread::_thread_finished mutex unlock'.format(id(self)))
+            logger.debug('thread::_thread_finished mutex unlock')
 
 
     @property
@@ -111,7 +111,7 @@ class SNMPScannerThread(QThread):
     recived_message = pyqtSignal(str)
 
 
-    def __init__(self, host, community, parent=None):
+    def __init__(self, host: str, community: str, parent=None):
         ''' host - имя хоста например 192.168.1.1
             community - SNMP комьюнити с доступом на чтение
         '''

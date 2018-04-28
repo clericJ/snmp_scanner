@@ -1,5 +1,5 @@
 ﻿[PyScripter]
-Version=3.2.2.0
+Version=3.3.2.0
 
 [Project]
 ClassName=TProjectRootNode
@@ -50,6 +50,32 @@ Count=9
 
 [Project\ChildNodes\Node1]
 ClassName=TProjectRunConfiguationsNode
+
+[Project\ChildNodes\Node1\ChildNodes\Node0]
+ClassName=TProjectRunConfiguationNode
+Name=run
+
+[Project\ChildNodes\Node1\ChildNodes\Node0\RunConfig]
+ScriptName=D:\usr\dev\sources\python\projects\snmp_scanner\snmp_scanner_app.py
+Description=run
+EngineType=peRemote
+ReinitializeBeforeRun=TRUE
+WorkingDir=$[ActiveScript-Dir]
+WriteOutputToFile=FALSE
+OutputFileName=$[ActiveScript-NoExt].log
+AppendToFile=FALSE
+
+[Project\ChildNodes\Node1\ChildNodes\Node0\RunConfig\ExternalRun]
+Caption=External Run
+Description=Run script using an external Python Interpreter
+ApplicationName=$[PythonExe-Short]
+Parameters=$[ActiveScript-Short]
+WorkingDirectory=$[ActiveScript-Dir]
+ShortCut=0
+MessagesFormat=$[FileName] $[LineNumber]
+
+[Project\ChildNodes\Node1\ChildNodes]
+Count=1
 
 [Project\ChildNodes]
 Count=2

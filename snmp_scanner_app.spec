@@ -38,3 +38,4 @@ coll = COLLECT(exe,
                upx=False,
                name='SNMP Scanner')
 
+# vim: ft=python
